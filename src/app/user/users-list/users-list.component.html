@@ -16,8 +16,8 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Nazwa użytkownika</th>
-          <th>Header</th>
+          <th>Username</th>
+          <th>Email</th>
           <th>Header</th>
         </tr>
       </thead>
@@ -25,7 +25,7 @@
         <tr *ngFor="let user of users; index as i">
           <td> {{ i+1 }}</td>
           <td> {{ user.username }}</td>
-          <td> more info </td>
+          <td> {{ user.email }} </td>
           <td> more info </td>
         </tr>
       </tbody>

@@ -7,7 +7,9 @@ import { SpeciesModule } from './species/species.module';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { SidebarComponent } from './core/sidebar/sidebar.component';
 import { ContentComponent } from './core/content/content.component';
-import { UsersListComponent } from './user/users-list/users-list.component'
+import { UsersListComponent } from './user/users-list/users-list.component';
+import { ObservationComponent } from './observation/observation.component'
+import { UserService } from './user/shared/user.service';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,15 @@ import { UsersListComponent } from './user/users-list/users-list.component'
     NavbarComponent,
     SidebarComponent,
     ContentComponent,
-    UsersListComponent
+    UsersListComponent,
+    ObservationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SpeciesModule
   ],
-  providers: [ ],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
