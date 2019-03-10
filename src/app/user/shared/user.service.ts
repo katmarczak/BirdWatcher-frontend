@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { User } from './user.model';
 
@@ -6,13 +7,11 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
+  private url = 'http://localhost:3000/users';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return of([
-      {id: 1, 'username': 'admin', email: 'admin@bw.com', registeredOn: null },
-      {id: 2, 'username': 'user', email: 'user@bw.com', registeredOn: null }
-    ]);
+    return this.http.get<User[]>(this.url);
   }
 }
