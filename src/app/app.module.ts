@@ -11,6 +11,9 @@ import { ContentComponent } from './core/content/content.component';
 import { UsersListComponent } from './user/users-list/users-list.component';
 import { ObservationComponent } from './observation/observation.component'
 import { UserService } from './user/shared/user.service';
+import { SpeciesService } from './species/shared/species.service';
+import { ObservationService } from './observation/shared/observation.service';
+import { ObservationsListComponent } from './observation/observations-list/observations-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { UserService } from './user/shared/user.service';
     SidebarComponent,
     ContentComponent,
     UsersListComponent,
-    ObservationComponent
+    ObservationComponent,
+    ObservationsListComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,11 @@ import { UserService } from './user/shared/user.service';
     AppRoutingModule,
     SpeciesModule
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    ObservationService,
+    SpeciesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

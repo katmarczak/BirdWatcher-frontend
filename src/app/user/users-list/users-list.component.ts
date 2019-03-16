@@ -9,8 +9,7 @@ import { UserService } from '../shared/user.service';
 export class UsersListComponent implements OnInit {
   users;
 
-  constructor(private userService: UserService) {
-  }
+  constructor(private userService: UserService) { }
 
   getUsers():void { this.userService.getUsers().subscribe(users => this.users = users); }
 

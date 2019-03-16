@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { SpeciesComponent } from './species.component';
-import { SpeciesService } from './species.service';
+import { SpeciesService } from './shared/species.service';
 import { CommonModule } from '@angular/common';
 import { SpeciesListComponent } from './species-list/species-list.component';
 
@@ -17,7 +17,7 @@ import { SpeciesListComponent } from './species-list/species-list.component';
     SpeciesService
   ],
   exports: [
-      SpeciesComponent,
+    SpeciesComponent,
   ]
 })
 export class SpeciesModule { }
