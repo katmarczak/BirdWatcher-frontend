@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ObservationService } from '../shared/observation.service';
 
 @Component({
   selector: 'app-observations-list',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./observations-list.component.scss']
 })
 export class ObservationsListComponent implements OnInit {
+  observations;
 
-  constructor() { }
+  constructor(private service: ObservationService) { }
 
-  ngOnInit() {
-  }
+  getObservations():void { this.service.getObservations().subscribe(observations => this.observations = observations); }
+
+  ngOnInit() { this.getObservations(); }
 
 }

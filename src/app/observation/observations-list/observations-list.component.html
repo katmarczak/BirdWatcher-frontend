@@ -1,3 +1,25 @@
-<p>
-  observations-list works!
-</p>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Lista wszystkich gatunków w bazie</h1>
+</div>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Gatunek</th>
+        <th>Miejsce</th>
+        <th>Dodane przez</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let observation of observations">
+        <ng-container *ngIf="observation.visible">
+          <td> {{ observation.date | date:'mm.dd.yyyy' }} </td>
+          <td> {{ observation.species.commonName }}</td>
+          <td> {{ observation.exactLocation }} </td>
+          <td> {{ observation.owner.username }} </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+</div>
