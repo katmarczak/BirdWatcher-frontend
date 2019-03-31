@@ -12,4 +12,6 @@ export class ObservationService {
   constructor(private http: HttpClient) { }
 
   getObservations():Observable<Observation[]> { return this.http.get<Observation[]>(this.url); }
+
+  getObservation(id):Observable<Observation> { return this.http.get<Observation>(this.url+'/'+id); }
 }

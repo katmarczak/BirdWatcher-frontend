@@ -17,6 +17,7 @@ import { ObservationService } from './observation/shared/observation.service';
 import { ObservationsListComponent } from './observation/observations-list/observations-list.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegisterComponent } from './user/register/register.component';
     ObservationComponent,
     ObservationsListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
