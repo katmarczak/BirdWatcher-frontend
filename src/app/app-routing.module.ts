@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContentComponent } from './core/content/content.component';
+import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { SpeciesListComponent } from './species/species-list/species-list.component';
 import { UsersListComponent } from './user/users-list/users-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
@@ -13,6 +14,32 @@ const routes: Routes = [
   {
     path: '',
     component: ContentComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent,
+      },
+      {
+        path: 'observations',
+        component: ObservationsListComponent
+      },
+      {
+        path: 'observations/:id',
+        component: ObservationComponent
+      },
+      {
+        path: 'users',
+        component: UsersListComponent,
+      },
+      {
+        path: 'users/:id',
+        component: UserDetailComponent,
+      },
+      {
+        path: 'species',
+        component: SpeciesListComponent
+      }
+    ]
   },
   {
     path: 'login',
@@ -21,26 +48,6 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
-  },
-  {
-    path: 'observations',
-    component: ObservationsListComponent
-  },
-  {
-    path: 'observations/:id',
-    component: ObservationComponent
-  },
-  {
-    path: 'users',
-    component: UsersListComponent,
-  },
-  {
-    path: 'users/:id',
-    component: UserDetailComponent,
-  },
-  {
-    path: 'species',
-    component: SpeciesListComponent
   }
 ];
 

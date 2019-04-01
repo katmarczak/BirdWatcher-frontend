@@ -18,6 +18,7 @@ import { ObservationsListComponent } from './observation/observations-list/obser
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { DashboardComponent } from './core/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
     ObservationsListComponent,
     LoginComponent,
     RegisterComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
