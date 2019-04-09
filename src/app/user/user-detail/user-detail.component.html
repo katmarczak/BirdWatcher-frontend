@@ -1,5 +1,31 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">{{ user.username }} - profil</h1>
 </div>
-<p>Zarejestrowany od: {{ user.registeredOn | date:'mm.dd.yyyy' }}</p>
-<button (click)="goBack()">Cofnij</button>
+<div class="row">
+  <div class="col-sm-2">
+    <div>
+      <img src="../../../assets/default-avatar.png" id="avatar" alt="avatar">
+    </div>
+    <div>
+      <button class="btn btn-block btn-primary">Wyślij wiadomość</button>
+    </div>
+    <div>
+      <p>Zarejestrowany od: {{ user.registeredOn | date:'mm.dd.yyyy' }}</p>
+    </div>
+    <div>
+      <button (click)="goBack()">Cofnij</button>
+    </div>
+  </div>
+  
+  <div class="col-sm-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">costam</h5>
+      </div>
+      <div>
+        <p>jakas tresc</p>
+      </div>
+    </div>
+  </div>
+</div>
+

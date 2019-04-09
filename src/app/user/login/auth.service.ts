@@ -8,10 +8,10 @@ import { LoginData } from './loginData.model';
 })
 export class AuthService {
     private url = 'http://localhost:3000/auth';
-    private isLogged: boolean;
+    private isLogged: boolean = false;
 
     constructor(private http: HttpClient) { 
-
+        this.checkToken();
     }
 
     login(loginData: LoginData):Observable<string> {
@@ -24,5 +24,14 @@ export class AuthService {
 
     isUserLogged(): boolean {
         return this.isLogged;
+    }
+
+    checkToken(): void {
+        const token = localStorage.getItem('jwt-token');
+        if(token) {
+            this.http.get(this.url + '/' + token, { responseType: 'text' }).subscribe(() => {
+                this.isLogged = true;
+            });
+        }
     }
 }
