@@ -18,6 +18,11 @@ export class AuthService {
         return this.http.post(this.url, loginData, { headers: new HttpHeaders({'Content-Type': 'application/json'}), responseType: 'text'});
     }
 
+    logout() {
+        localStorage.removeItem('jwt-token');
+        this.isLogged = false;
+    }
+
     setIsLogged(isLogged: boolean): void {
         this.isLogged = isLogged;
     }
