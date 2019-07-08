@@ -1,0 +1,28 @@
+.sidebar-info {
+    margin: 0 20px;
+}
+
+#profile-info {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.125);
+    margin: 15px auto;
+}
+
+#profile-info > div {
+    display: inline-block;
+    margin: 5px;
+}
+
+#profile-picture {
+    width: 60px;
+    height: 60px;
+}
+
+i {
+    margin: 0 5px;
+}
+
+#observation-details {
+    padding: 10px 15px;
+    margin: 5px -15px;
+}

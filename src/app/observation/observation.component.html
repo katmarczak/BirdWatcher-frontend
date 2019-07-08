@@ -1,7 +1,55 @@
-<div>
-  <p>{{observation._id}}</p>
-  <p>{{observation.owner.name}}</p>
-  <p>{{observation.species.commonName}}</p>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+  <div class="container-fluid">
+    <div class="row">
+      <h2>{{observation.species.commonName}}</h2>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="row">
+          <div class="card post-thumbnail">
+            <img src="../../../assets/swans.jpg" class="card-img-top" alt="...">
+          </div>
+        </div>
+        <div id="observation-details">
+          <div class="row">
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i> Lokacja: {{ observation.exactLocation.coordinates }}
+            </p>
+          </div>
+          <div class="row">
+            <p><i class="fa fa-calendar-o" aria-hidden="true"></i> Data: {{ observation.date | date:'d.M.y' }}</p>
+          </div>
+          <div class="row">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Opis</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2 sidebar-info">
+        <div class="row">
+          <div>
+            <i class="fa fa-star"></i> Oceń
+          </div>
+          <div>
+            <i class="fa fa-star"></i> [liczba]
+          </div>
+        </div>
+        <div class="row">
+          <div id="profile-info">
+            <div><img id="profile-picture" src="../../assets/blank-profile-picture.png"></div>
+            <div><a routerLink="/users/{{observation.owner._id}}">{{ observation.owner.username }}</a></div>
+          </div>
+        </div>
+        <div class="row">
+          <button type="button" class="btn btn-info btn-block">{{observation.species.commonName}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<button (click)="goBack()">Cofnij</button>
+<!--<button (click)="goBack()">Cofnij</button>-->
