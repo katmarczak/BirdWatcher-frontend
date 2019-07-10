@@ -17,8 +17,9 @@
         <tr>
           <th>#</th>
           <th>Nazwa</th>
-          <th>Header</th>
-          <th>Header</th>
+          <th>Nazwa naukowa</th>
+          <th>Kategoria AERC</th>
+          <th>Status w Polsce</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +27,8 @@
           <td> {{ i+1 }}</td>
           <td> {{ spec.commonName }}</td>
           <td> {{ spec.scientificName }} </td>
-          <td> more info </td>
+          <td> {{ spec.AERCcategoryPL }} </td>
+          <td> {{ spec.statusPL }} </td>
         </tr>
       </tbody>
     </table>
