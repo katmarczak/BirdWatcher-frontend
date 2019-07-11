@@ -14,7 +14,7 @@
     <tbody>
       <tr *ngFor="let observation of observations">
         <ng-container *ngIf="observation.visible">
-          <td> <a routerLink="/observations/{{observation._id}}">{{ observation.date | date:'mm.dd.yyyy' }}</a> </td>
+          <td> <a routerLink="/observations/{{observation._id}}">{{ observation.date | date:'dd.MM.yyyy' }}</a> </td>
           <td> {{ observation.species.commonName }}</td>
           <td> {{ observation.exactLocation }} </td>
           <td> <a routerLink="/users/{{observation.owner._id}}">{{ observation.owner.username }}</a> </td>
