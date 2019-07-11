@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService } from '../shared/user.service';
+import { ObservationService } from '../../observation/shared/observation.service';
 import { User } from '../shared/user.model';
 
 @Component({
@@ -11,9 +12,11 @@ import { User } from '../shared/user.model';
 })
 export class UserDetailComponent implements OnInit {
   user: User;
+  userObservations;
 
   constructor(
     private userService: UserService,
+    private observationService: ObservationService,
     private route: ActivatedRoute,
     private location: Location
   ) { }
@@ -24,7 +27,14 @@ export class UserDetailComponent implements OnInit {
 
   getUser() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.userService.getUser(id).subscribe(user => this.user = user);
+    this.userService.getUser(id).subscribe((user) => {
+      this.user = user;
+      this.getUserObservations(user._id);
+    });
+  }
+
+  getUserObservations(userId) {
+    this.observationService.getUserObservations(userId).subscribe(observations => this.userObservations = observations);
   }
 
   goBack() {

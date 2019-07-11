@@ -13,5 +13,9 @@ export class ObservationService {
 
   getObservations():Observable<Observation[]> { return this.http.get<Observation[]>(this.url); }
 
+  getUserObservations(userId: String):Observable<Observation[]> { 
+    return this.http.get<Observation[]>(`${this.url}/search?userId=${userId}`);
+   }
+
   getObservation(id):Observable<Observation> { return this.http.get<Observation>(this.url+'/'+id); }
 }
