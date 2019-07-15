@@ -19,6 +19,8 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
+import { ObservationFormComponent } from './observation/observation-form/observation-form.component';
+import { ObservationNewComponent } from './observation/observation-new/observation-new.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { DashboardComponent } from './core/dashboard/dashboard.component';
     LoginComponent,
     RegisterComponent,
     UserDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    ObservationFormComponent,
+    ObservationNewComponent
   ],
   imports: [
     BrowserModule,

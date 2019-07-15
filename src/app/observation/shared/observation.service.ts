@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Observation } from './observation.model';
 
@@ -18,4 +18,15 @@ export class ObservationService {
    }
 
   getObservation(id):Observable<Observation> { return this.http.get<Observation>(this.url+'/'+id); }
+
+  postObservation(observation):Observable<Observation> { 
+    const token = localStorage.getItem('jwt-token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'x-auth-token': token
+      })
+    };
+    return this.http.post<Observation>(this.url, observation, httpOptions); 
+  }
 }
