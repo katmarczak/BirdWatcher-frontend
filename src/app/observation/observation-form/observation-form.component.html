@@ -3,34 +3,27 @@
     <div class="form-group row">
       <label class="col-2" for="species-list-dropdown">Gatunek</label>
       <div class="col-10">
-        <input list="species-list-dropdown"/>
-        <datalist name="species-list" id="species-list-dropdown">
-          <option *ngFor="let spec of species" value="{{spec.commonName}}">{{spec.commonName}}</option>
-        </datalist>
+        <select name="species-list" id="species-list-dropdown" [(ngModel)]="observation.species">
+          <option *ngFor="let spec of species" [ngValue]="spec">{{spec.commonName}}</option>
+        </select>
       </div>
     </div>
     <div class="form-group row">
       <label class="col-2" for="observation-date">Data</label>
       <div class="col-10">
-        <input type="date" name="observation-date" id="observation-date">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label class="col-2" for="longitude-input">Dlugosc geo</label>
-      <div class="col-10">
-        <input type="number" name="longitude" id="longitude-input">
+        <input type="date" name="observation-date" id="observation-date" [(ngModel)]="observation.date">
       </div>
     </div>
     <div class="form-group row">
       <label class="col-2" for="latitude-input">Szerokosc geo</label>
       <div class="col-10">
-        <input type="number" name="latitude" id="latitude-input">
+        <input type="number" name="latitude" id="latitude-input" min="-90" max="90" [(ngModel)]="observation.exactLocation.coordinates[0]">
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-2" for="">Miejscowość</label>
+      <label class="col-2" for="longitude-input">Dlugosc geo</label>
       <div class="col-10">
-        <input type="text" name="" id="">
+        <input type="number" name="longitude" id="longitude-input" min="-180" max="180" [(ngModel)]="observation.exactLocation.coordinates[1]">
       </div>
     </div>
     <button type="submit" class="btn btn-info">Wyślij</button>
