@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ObservationService } from '../shared/observation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-observation-new',
@@ -8,16 +9,17 @@ import { ObservationService } from '../shared/observation.service';
 })
 export class ObservationNewComponent implements OnInit {
 
-  constructor(private observationService: ObservationService) { }
+  constructor(private observationService: ObservationService, private router: Router) { }
 
   ngOnInit() {
   }
 
   post(observation) {
     const data = { speciesId: observation.species._id, date: observation.date, exactLocation: observation.exactLocation };
-    this.observationService.postObservation(data).subscribe((response) => {
-      console.log(response);
-    });
+    this.observationService.postObservation(data).subscribe(
+      (observation) => {
+        this.router.navigate(['/observations', observation._id]);
+    }, (error) => console.log(error));
   }
 
 }
