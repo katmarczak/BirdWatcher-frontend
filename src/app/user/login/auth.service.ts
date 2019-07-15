@@ -14,12 +14,14 @@ export class AuthService {
         this.checkToken();
     }
 
-    login(loginData: LoginData):Observable<string> {
-        return this.http.post(this.url, loginData, { headers: new HttpHeaders({'Content-Type': 'application/json'}), responseType: 'text'});
+    login(loginData: LoginData):Observable<any> {
+        return this.http.post(this.url, loginData, { headers: new HttpHeaders({'Content-Type': 'application/json'})});
     }
 
     logout() {
         localStorage.removeItem('jwt-token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('userId');
         this.isLogged = false;
     }
 

@@ -18,17 +18,19 @@ export class LoginComponent implements OnInit {
   
   onSubmit(): void {
     this.authService.login(this.loginData).subscribe(
-      (token) => {
-        console.log(token);
-        this.saveToken(token);
+      (data) => {
+        console.log(data);
+        this.saveToLocalStorage(data);
         this.authService.setIsLogged(true);
         this.router.navigateByUrl('/');
       }, 
       (error) => console.log(error));
   }
 
-  private saveToken(token: string): void {
-    localStorage.setItem('jwt-token', token);
+  private saveToLocalStorage(data): void {
+    localStorage.setItem('jwt-token', data.token);
+    localStorage.setItem('username', data.user.username);
+    localStorage.setItem('userId', data.user._id);
   }
 
 }
