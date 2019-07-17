@@ -75,6 +75,9 @@
           <span class="post-actions"><i class="fa fa-eye fa-lg"></i>123 wyświetleń</span>
         </div>
       </div>
+      <div class="row" *ngIf="isEditable()">
+        <button class="btn btn-block btn-outline-warning" (click)="toEditPage()">Edytuj</button>
+      </div>
     </div>
   </div>
 </div>

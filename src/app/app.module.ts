@@ -22,6 +22,7 @@ import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { ObservationFormComponent } from './observation/observation-form/observation-form.component';
 import { ObservationNewComponent } from './observation/observation-new/observation-new.component';
 import { HttpInterceptorProviders } from './interceptors';
+import { ObservationEditComponent } from './observation/observation-edit/observation-edit.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HttpInterceptorProviders } from './interceptors';
     UserDetailComponent,
     DashboardComponent,
     ObservationFormComponent,
-    ObservationNewComponent
+    ObservationNewComponent,
+    ObservationEditComponent
   ],
   imports: [
     BrowserModule,

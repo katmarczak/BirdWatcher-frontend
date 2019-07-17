@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ObservationService } from './shared/observation.service';
 import { Observation } from './shared/observation.model';
@@ -15,7 +15,8 @@ export class ObservationComponent implements OnInit {
   constructor(
     private observationService: ObservationService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -27,8 +28,12 @@ export class ObservationComponent implements OnInit {
     this.observationService.getObservation(id).subscribe(observation => this.observation = observation);
   }
 
-  goBack() {
-    this.location.back();
+  isEditable() {
+    return this.observation.editable;
+  }
+
+  toEditPage() {
+    this.router.navigate(['/observations/edit', this.observation._id]);
   }
 
 }
