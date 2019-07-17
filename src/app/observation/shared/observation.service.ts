@@ -20,13 +20,6 @@ export class ObservationService {
   getObservation(id):Observable<Observation> { return this.http.get<Observation>(this.url+'/'+id); }
 
   postObservation(observation):Observable<Observation> { 
-    const token = localStorage.getItem('jwt-token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'x-auth-token': token
-      })
-    };
-    return this.http.post<Observation>(this.url, observation, httpOptions); 
+    return this.http.post<Observation>(this.url, observation); 
   }
 }

@@ -21,6 +21,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { ObservationFormComponent } from './observation/observation-form/observation-form.component';
 import { ObservationNewComponent } from './observation/observation-new/observation-new.component';
+import { HttpInterceptorProviders } from './interceptors';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ObservationNewComponent } from './observation/observation-new/observati
     SpeciesModule
   ],
   providers: [
+    HttpInterceptorProviders,
     AuthService,
     UserService,
     ObservationService,
