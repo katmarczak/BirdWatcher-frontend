@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SpeciesService } from '../../species/shared/species.service';
 import { Observation } from '../shared/observation.model';
 
@@ -9,19 +9,20 @@ import { Observation } from '../shared/observation.model';
 })
 export class ObservationFormComponent implements OnInit {
   species;
-  observation: Observation = new Observation();
+  @Input() observation: Observation;
   @Output() submitEvent = new EventEmitter<Observation>();
 
   constructor(private speciesService: SpeciesService) { }
+
+  ngOnInit() {
+    this.getSpecies();
+    if(!this.observation) this.observation = new Observation();
+  }
 
   getSpecies(): void { this.speciesService.getSpecies().subscribe(species => this.species = species); }
 
   onSubmit() { 
     this.submitEvent.emit(this.observation);
-  }
-
-  ngOnInit() {
-    this.getSpecies();
   }
 
 }

@@ -27,7 +27,7 @@ export class ObservationEditComponent implements OnInit {
   }
 
   update(observation) {
-    const data = { speciesId: observation.species._id, date: observation.date, exactLocation: observation.exactLocation };
+    const data = { _id: observation._id, speciesId: observation.species._id, date: observation.date, exactLocation: observation.exactLocation };
     this.observationService.editObservation(data).subscribe(
       (observation) => {
         this.router.navigate(['/observations', observation._id]);
