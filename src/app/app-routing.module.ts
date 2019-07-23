@@ -5,6 +5,7 @@ import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { SpeciesListComponent } from './species/species-list/species-list.component';
 import { UsersListComponent } from './user/users-list/users-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { UserSettingsComponent } from './user/user-settings/user-settings.component';
 import { ObservationsListComponent } from './observation/observations-list/observations-list.component';
 import { ObservationNewComponent } from './observation/observation-new/observation-new.component';
 import { ObservationEditComponent } from './observation/observation-edit/observation-edit.component';
@@ -58,6 +59,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'settings',
+    component: UserSettingsComponent
   }
 ];
 
