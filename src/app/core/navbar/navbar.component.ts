@@ -20,11 +20,15 @@ export class NavbarComponent implements OnInit {
 
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['/']);
+    this.router.navigateByUrl('/');
   }
 
-  toProfilePage(): void {
+  goToProfile(): void {
     this.router.navigate(['/users', this.userId]);
+  }
+
+  goToSettings(): void {
+    this.router.navigateByUrl('/settings');
   }
 
 }

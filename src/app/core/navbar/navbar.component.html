@@ -1,10 +1,18 @@
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/">Bird Watcher</a>
-    <div style="display: flex; justify-content: space-between; width: 100%;">
-        <input class="form-control form-control-dark" type="text" placeholder="Search" aria-label="Search">
+    <div id="nav-buttons">
         <button *ngIf="!authService.isUserLogged()" class="btn btn-link text-nowrap" routerLink="/login">Zaloguj</button>
         <button *ngIf="!authService.isUserLogged()" class="btn btn-link text-nowrap" routerLink="/register">Zarejestruj</button>
-        <button *ngIf="authService.isUserLogged()" class="btn btn-link text-nowrap" (click)="logout()">Wyloguj</button>
-        <button *ngIf="authService.isUserLogged()" class="btn btn-link text-nowrap" (click)="toProfilePage()">Profil</button>
+        <button *ngIf="authService.isUserLogged()" class="btn btn-link text-nowrap" (click)="goToProfile()">Profil</button>
+        <button *ngIf="authService.isUserLogged()" class="btn dropdown-toggle dropdown-toggle-split" 
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Dropdown</span>
+        </button>
+        <div class="dropdown-menu" id="profile-menu-dropdown">
+            <button class="dropdown-item btn btn-link" (click)="goToProfile()">Mój profil</button>
+            <button class="dropdown-item btn btn-link" (click)="goToSettings()">Ustawienia</button>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" id="logout-link" href="/" (click)="logout()">Wyloguj</a>
+        </div>
     </div>
 </nav>

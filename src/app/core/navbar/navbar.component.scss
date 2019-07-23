@@ -1,0 +1,18 @@
+#nav-buttons {
+    display: flex; 
+    justify-content: flex-end; 
+    width: 100%; 
+    padding-right: 10px;
+}
+
+#nav-buttons > button {
+    color: white;
+}
+
+#profile-menu-dropdown {
+    left: unset;
+}
+
+#logout-link {
+    color: crimson !important;
+}
