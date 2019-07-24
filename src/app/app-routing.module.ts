@@ -49,6 +49,10 @@ const routes: Routes = [
       {
         path: 'species',
         component: SpeciesListComponent
+      },
+      {
+        path: 'settings',
+        component: UserSettingsComponent
       }
     ]
   },
@@ -59,10 +63,6 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
-  },
-  {
-    path: 'settings',
-    component: UserSettingsComponent
   }
 ];
 
