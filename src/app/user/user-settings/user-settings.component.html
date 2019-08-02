@@ -10,6 +10,12 @@
     <div class="col-9">
       <!--<h3 class="h2 border-bottom">Edycja profilu</h3>-->
       <!-- router outlet -->
+      <div class="form-group">
+        <form (ngSubmit)="onSubmit()">
+          <input type="file" name="avatar" id="avatar" (change)="handleFileInput($event.target.files)">
+          <button type="submit">Wyślij</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

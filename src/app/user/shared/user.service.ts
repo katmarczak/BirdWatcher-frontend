@@ -23,4 +23,13 @@ export class UserService {
   registerUser(registrationData: RegistrationData) {
     return this.http.post(this.url, registrationData, { headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
+
+  postFile(file: File): any {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);
+    console.log(formData);
+    this.http.post(this.url, formData).subscribe((res) => {
+      console.log(res);
+    });
+  }
 }
