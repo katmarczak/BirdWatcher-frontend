@@ -10,7 +10,10 @@
                 Obserwacje
             </a>
         <li class="nav-item">
-            <a class="nav-link" routerLink="/observations/create">
+            <a *ngIf="authService.isUserLogged()" class="nav-link" routerLink="/observations/create">
+                Dodaj nowa obserwacje
+            </a>
+            <a *ngIf="!authService.isUserLogged()" class="nav-link" routerLink="/login">
                 Dodaj nowa obserwacje
             </a>
         </li>
