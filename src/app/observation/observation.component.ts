@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
 import { ObservationService } from './shared/observation.service';
 import { Observation } from './shared/observation.model';
 
@@ -15,7 +14,6 @@ export class ObservationComponent implements OnInit {
   constructor(
     private observationService: ObservationService,
     private route: ActivatedRoute,
-    private location: Location,
     private router: Router
   ) { }
 

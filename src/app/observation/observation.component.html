@@ -1,9 +1,9 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h2>{{observation.species.commonName}}</h2>
+  <h3>{{observation.species.commonName}} ({{observation.species.scientificName}})</h3>
 </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-7">
+    <div class="col-6">
       <div class="row">
         <div class="card post-thumbnail">
           <img src="../../../assets/swans.jpg" class="card-img-top" alt="...">
@@ -23,45 +23,29 @@
         </div>
       </div>
       <div class="row" id="comments">
-        <h3 style="padding: 1.25rem;">Komentarze</h3><br>
-        <ul>
-          <li class="media">
-            <img src="../../assets/blank-profile-picture.png" class="mr-3 profile-picture">
-            <div class="media-body">
-              <h5 class="mt-0 mb-1">User 1</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-            </div>
-          </li>
-          <li class="media my-4">
-            <img src="../../assets/blank-profile-picture.png" class="mr-3 profile-picture">
-            <div class="media-body">
-              <h5 class="mt-0 mb-1">User 2</h5>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </div>
-          </li>
-        </ul>
+        <app-comments></app-comments>
       </div>
     </div>
-    <div class="col-2 sidebar-info">
+    <div class="col-3 sidebar-info">
       <div class="row">
         <div id="profile-info">
           <div><img class="profile-picture" src="../../assets/blank-profile-picture.png"></div>
-          <div><a routerLink="/users/{{observation.owner._id}}"><span
-                class="post-actions">{{ observation.owner.username }}</span></a></div>
+          <div>
+            <a routerLink="/users/{{observation.owner._id}}">
+              <span class="post-actions">{{ observation.owner.username }}</span>
+            </a>
+            <p>some info?</p>
+          </div>
         </div>
       </div>
       <div class="row">
-        <h5><i class="fa fa-calendar-o" aria-hidden="true"></i> Data: {{ observation.date | date:'dd.MM.y' }}</h5>
-      </div>
-      <div class="row">
-        <h5><i class="fa fa-map" aria-hidden="true"></i> [Lokacja] {{ observation.exactLocation.coordinates }}
-        </h5>
+        <p><i class="fa fa-calendar-o" aria-hidden="true"></i> Data: {{ observation.date | date:'dd.MM.y' }}</p>
+        <p><i class="fa fa-map" aria-hidden="true"></i> Lokacja: {{ observation.exactLocation.coordinates }}</p>
       </div>
       <div class="row">
         <div class="card">
           <div>
-            <img src="../../../assets/flatmap.png" class="card-img-top" alt="map">
+            <img src="../../../assets/flatmap.png" class="card-img-top" alt="map" id="map">
           </div>
         </div>
       </div>
