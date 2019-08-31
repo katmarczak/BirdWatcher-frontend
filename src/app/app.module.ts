@@ -25,6 +25,8 @@ import { HttpInterceptorProviders } from './interceptors';
 import { ObservationEditComponent } from './observation/observation-edit/observation-edit.component';
 import { UserSettingsComponent } from './user/user-settings/user-settings.component';
 import { CommentsComponent } from './core/comments/comments.component';
+import { IdentificationCommentComponent } from './core/comments/identification-comment/identification-comment.component';
+import { CommonCommentComponent } from './core/comments/common-comment/common-comment.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { CommentsComponent } from './core/comments/comments.component';
     ObservationNewComponent,
     ObservationEditComponent,
     UserSettingsComponent,
-    CommentsComponent
+    CommentsComponent,
+    IdentificationCommentComponent,
+    CommonCommentComponent
   ],
   imports: [
     BrowserModule,
