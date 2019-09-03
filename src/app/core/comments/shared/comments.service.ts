@@ -12,6 +12,6 @@ export class CommentsService {
   constructor(private http: HttpClient) { }
 
   getObservationComments(observationId: String):Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.url}/observation/${observationId}`);
+    return this.http.get<Comment[]>(`${this.url}/search?observationId=${observationId}`);
   }
 }

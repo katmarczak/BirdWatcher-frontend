@@ -2,7 +2,7 @@ import { User } from 'src/app/user/shared/user.model';
 import { Species } from 'src/app/species/shared/species.model';
 
 export class Observation {
-    _id: number;
+    _id: String;
     owner: User;
     species: Species;
     date: Date;
