@@ -4,16 +4,16 @@
     <img src="../../assets/blank-profile-picture.png" class="mr-3 profile-picture">
     <div class="media-body">
       <div>
-          <span class="mt-0 mb-1">{{comment.author.username}} | </span>
-          <time>{{ comment.createdOn | date:'dd.MM.y' }}</time>
-        </div>
-        <p>{{comment.text}}</p>
+        <span class="mt-0 mb-1">{{comment.author.username}} | </span>
+        <time>{{ comment.createdOn | date:'dd.MM.y' }}</time>
+      </div>
+      <p>{{comment.text}}</p>
     </div>
   </li>
-  <li class="media comment">
+  <li *ngIf="authService.isUserLogged()" id="new-comment-panel" class="media comment">
     <img src="../../assets/blank-profile-picture.png" class="mr-3 profile-picture">
     <div class="media-body">
-      <textarea name="" id="" cols="45" rows="3"></textarea>
+      <app-comment-new></app-comment-new>
     </div>
   </li>
 </ul>

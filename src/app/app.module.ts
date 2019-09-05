@@ -27,6 +27,8 @@ import { UserSettingsComponent } from './user/user-settings/user-settings.compon
 import { CommentsComponent } from './core/comments/comments.component';
 import { IdentificationCommentComponent } from './core/comments/identification-comment/identification-comment.component';
 import { CommonCommentComponent } from './core/comments/common-comment/common-comment.component';
+import { CommentFormComponent } from './core/comments/comment-form/comment-form.component';
+import { CommentNewComponent } from './core/comments/comment-new/comment-new.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { CommonCommentComponent } from './core/comments/common-comment/common-co
     UserSettingsComponent,
     CommentsComponent,
     IdentificationCommentComponent,
-    CommonCommentComponent
+    CommonCommentComponent,
+    CommentFormComponent,
+    CommentNewComponent
   ],
   imports: [
     BrowserModule,
