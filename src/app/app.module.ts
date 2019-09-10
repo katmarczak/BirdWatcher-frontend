@@ -29,6 +29,7 @@ import { IdentificationCommentComponent } from './core/comments/identification-c
 import { CommonCommentComponent } from './core/comments/common-comment/common-comment.component';
 import { CommentFormComponent } from './core/comments/comment-form/comment-form.component';
 import { CommentNewComponent } from './core/comments/comment-new/comment-new.component';
+import { ObservationCommentComponent } from './core/comments/observation-comment/observation-comment.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CommentNewComponent } from './core/comments/comment-new/comment-new.com
     IdentificationCommentComponent,
     CommonCommentComponent,
     CommentFormComponent,
-    CommentNewComponent
+    CommentNewComponent,
+    ObservationCommentComponent
   ],
   imports: [
     BrowserModule,

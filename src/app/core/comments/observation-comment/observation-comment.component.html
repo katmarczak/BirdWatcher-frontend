@@ -1,0 +1,16 @@
+<img src="../../assets/blank-profile-picture.png" class="mr-3 profile-picture">
+<div class="media-body card">
+  <div class="card-header">
+    <div class="comment-info">
+      <span class="mt-0 mb-1 username">{{comment.author.username}} </span>
+      <time>[{{ comment.createdOn | date:'dd.MM.y' }}]</time>
+    </div>
+    <div class="comment-actions">
+      <button type="button" class="btn btn-sm btn-warning">Edytuj</button>
+      <button type="button" class="btn btn-sm btn-danger">Usuń</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <p>{{comment.text}}</p>
+  </div>
+</div>

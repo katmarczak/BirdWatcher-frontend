@@ -1,19 +1,10 @@
-<h5 style="padding: 1rem 1.25rem 0rem 1.25rem;">Komentarze</h5><br>
+<h5 style="padding: 1rem 1.25rem 0rem 1.25rem;">Komentarze</h5>
 <ul style="padding: 0rem 1.25rem;">
-  <li *ngFor="let comment of comments" class="media comment">
-    <img src="../../assets/blank-profile-picture.png" class="mr-3 profile-picture">
-    <div class="media-body">
-      <div>
-        <span class="mt-0 mb-1">{{comment.author.username}} | </span>
-        <time>{{ comment.createdOn | date:'dd.MM.y' }}</time>
-      </div>
-      <p>{{comment.text}}</p>
-    </div>
+  <li *ngFor="let comment of comments">
+    <app-observation-comment class="media comment" [comment]="comment"></app-observation-comment>
   </li>
   <li *ngIf="authService.isUserLogged()" id="new-comment-panel" class="media comment">
     <img src="../../assets/blank-profile-picture.png" class="mr-3 profile-picture">
-    <div class="media-body">
-      <app-comment-new></app-comment-new>
-    </div>
+    <app-comment-new class="media"></app-comment-new>
   </li>
 </ul>

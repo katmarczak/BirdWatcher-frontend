@@ -1,0 +1,21 @@
+.profile-picture {
+    height: 100%;
+    width: 50px;
+}
+
+.comment-info {
+    display: inline-block;
+    font-size: large;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.comment-actions {
+    float: right;
+}
+
+.card-header, .card-body {
+    padding: 0.5rem 0.75rem !important;
+}
