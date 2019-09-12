@@ -30,6 +30,7 @@ import { CommonCommentComponent } from './core/comments/common-comment/common-co
 import { CommentFormComponent } from './core/comments/comment-form/comment-form.component';
 import { CommentNewComponent } from './core/comments/comment-new/comment-new.component';
 import { ObservationCommentComponent } from './core/comments/observation-comment/observation-comment.component';
+import { CommentEditComponent } from './core/comments/comment-edit/comment-edit.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ObservationCommentComponent } from './core/comments/observation-comment
     CommonCommentComponent,
     CommentFormComponent,
     CommentNewComponent,
-    ObservationCommentComponent
+    ObservationCommentComponent,
+    CommentEditComponent
   ],
   imports: [
     BrowserModule,

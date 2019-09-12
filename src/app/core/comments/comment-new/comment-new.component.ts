@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommentsService } from '../shared/comments.service';
 
@@ -8,6 +8,7 @@ import { CommentsService } from '../shared/comments.service';
   styleUrls: ['./comment-new.component.scss']
 })
 export class CommentNewComponent implements OnInit {
+  @Output() newComment = new EventEmitter();
 
   constructor(
     private commentsService: CommentsService,
@@ -25,9 +26,9 @@ export class CommentNewComponent implements OnInit {
     };
 
     this.commentsService.postObservationComment(comment).subscribe(
-      (newComment) => {
-        // todo: refresh
-      }, (error) => console.log(error));;
+      (response) => this.newComment.emit(), 
+      (error) => console.log(error)
+    );
   }
 
 }

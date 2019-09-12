@@ -1,10 +1,10 @@
 <h5 style="padding: 1rem 1.25rem 0rem 1.25rem;">Komentarze</h5>
 <ul style="padding: 0rem 1.25rem;">
   <li *ngFor="let comment of comments">
-    <app-observation-comment class="media comment" [comment]="comment"></app-observation-comment>
+    <app-observation-comment class="media comment" (deletedComment)="reload()" [comment]="comment"></app-observation-comment>
   </li>
   <li *ngIf="authService.isUserLogged()" id="new-comment-panel" class="media comment">
     <img src="../../assets/blank-profile-picture.png" class="mr-3 profile-picture">
-    <app-comment-new class="media"></app-comment-new>
+    <app-comment-new class="media" (newComment)="reload()"></app-comment-new>
   </li>
 </ul>

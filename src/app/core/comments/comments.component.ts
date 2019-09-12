@@ -23,4 +23,8 @@ export class CommentsComponent implements OnInit {
     if(localStorage.getItem('username')) this.currentUsername = localStorage.getItem('username');
   }
 
+  reload() {
+    this.ngOnInit();
+  }
+
 }

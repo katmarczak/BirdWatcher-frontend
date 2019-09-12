@@ -12,11 +12,23 @@ export class CommentsService {
 
   constructor(private http: HttpClient) { }
 
+  getObservationComment(commentId: String):Observable<ObservationComment> {
+    return this.http.get<ObservationComment>(`${this.url}/${commentId}`);
+  }
+
   getObservationComments(observationId: String):Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.url}/search?observationId=${observationId}`);
   }
 
-  postObservationComment(comment):Observable<ObservationComment> {
-    return this.http.post<any>(`${this.url}`, comment);
+  postObservationComment(newComment):Observable<ObservationComment> {
+    return this.http.post<any>(`${this.url}`, newComment);
+  }
+
+  updateObservationComment(id: String, updatedText: String):Observable<ObservationComment> {
+    return this.http.put<any>(`${this.url}/${id}`, { text: updatedText});
+  }
+
+  deleteObservationComment(id: String):Observable<ObservationComment> {
+    return this.http.delete<any>(`${this.url}/${id}`);
   }
 }

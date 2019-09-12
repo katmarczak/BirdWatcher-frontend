@@ -10,6 +10,7 @@ import { ObservationsListComponent } from './observation/observations-list/obser
 import { ObservationNewComponent } from './observation/observation-new/observation-new.component';
 import { ObservationEditComponent } from './observation/observation-edit/observation-edit.component';
 import { ObservationComponent } from './observation/observation.component';
+import { CommentEditComponent } from './core/comments/comment-edit/comment-edit.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: 'observations/:id',
         component: ObservationComponent
+      },
+      {
+        path: 'comments/edit/:id',
+        component: CommentEditComponent
       },
       {
         path: 'users',

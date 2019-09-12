@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { Comment } from '../shared/comment.model';
+import { CommentsService } from '../shared/comments.service';
 
 @Component({
   selector: 'app-observation-comment',
@@ -8,10 +10,29 @@ import { Comment } from '../shared/comment.model';
 })
 export class ObservationCommentComponent implements OnInit {
   @Input() comment: Comment;
+  @Output() deletedComment = new EventEmitter();
 
-  constructor() { }
+  constructor(private commentsService: CommentsService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  isEditable() {
+    return this.comment.editable;
+  }
+
+  deleteComment() {
+    this.commentsService.deleteObservationComment(this.comment._id).subscribe(
+      (response) => {
+        console.log(response);
+        this.deletedComment.emit();
+      },
+      (error) => console.log(error)
+    );
+  }
+
+  toEditPage() {
+    this.router.navigate(['/comments/edit', this.comment._id]);
   }
 
 }
