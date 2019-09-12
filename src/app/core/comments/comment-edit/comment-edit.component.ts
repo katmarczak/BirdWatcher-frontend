@@ -26,7 +26,6 @@ export class CommentEditComponent implements OnInit {
   }
 
   updateComment(commentText: String) {
-    console.log('in comment edit comp: ', commentText);
     this.commentsService.updateObservationComment(this.comment._id, commentText).subscribe(
       (updatedComment) => this.router.navigate(['/observations', updatedComment.observationId]),
       (error) => console.log(error)

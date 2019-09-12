@@ -1,69 +1,70 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h3>{{observation.species.commonName}} ({{observation.species.scientificName}})</h3>
-</div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-6">
-      <div class="row" id="main-photo">
-        <div class="card post-thumbnail">
-          <img src="../../../assets/swans.jpg" class="card-img-top" alt="...">
+<div *ngIf="observation">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h3>{{observation.species.commonName}} ({{observation.species.scientificName}})</h3>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <div class="row" id="main-photo">
+          <div class="card post-thumbnail">
+            <img src="../../../assets/swans.jpg" class="card-img-top" alt="...">
+          </div>
         </div>
-      </div>
-      <div id="observation-extras">
-        <div class="row">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Opis</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</p>
+        <div id="observation-extras">
+          <div class="row">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Opis</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat.</p>
+              </div>
             </div>
           </div>
         </div>
+        <div class="row" id="comments">
+          <app-comments [observation]="observation" style="width: 100%;"></app-comments>
+        </div>
       </div>
-      <div class="row" id="comments">
-        <app-comments *ngIf="observation" [observation]="observation" style="width: 100%;"></app-comments>
-      </div>
-    </div>
-    <div class="col-3 sidebar-info">
-      <div class="row">
-        <div id="profile-info">
-          <div><img class="profile-picture" src="../../assets/blank-profile-picture.png"></div>
-          <div>
-            <a routerLink="/users/{{observation.owner._id}}">
-              <span class="post-actions">{{ observation.owner.username }}</span>
-            </a>
-            <p>some info?</p>
+      <div class="col-3 sidebar-info">
+        <div class="row">
+          <div id="profile-info">
+            <div><img class="profile-picture" src="../../assets/blank-profile-picture.png"></div>
+            <div>
+              <a routerLink="/users/{{observation.owner._id}}">
+                <span class="post-actions">{{ observation.owner.username }}</span>
+              </a>
+              <p>some info?</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <p><i class="fa fa-calendar-o" aria-hidden="true"></i> Data: {{ observation.date | date:'dd.MM.y' }}</p>
-        <p><i class="fa fa-map" aria-hidden="true"></i> Lokacja: {{ observation.exactLocation.coordinates }}</p>
-      </div>
-      <div class="row">
-        <div class="card">
-          <div>
-            <img src="../../../assets/flatmap.png" class="card-img-top" alt="map" id="map">
+        <div class="row">
+          <p><i class="fa fa-calendar-o" aria-hidden="true"></i> Data: {{ observation.date | date:'dd.MM.y' }}</p>
+          <p><i class="fa fa-map" aria-hidden="true"></i> Lokacja: {{ observation.exactLocation.coordinates }}</p>
+        </div>
+        <div class="row">
+          <div class="card">
+            <div>
+              <img src="../../../assets/flatmap.png" class="card-img-top" alt="map" id="map">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div>
-          <span class="post-actions"><i class="fa fa-star fa-lg"></i>Oceń (123)</span>
+        <div class="row">
+          <div>
+            <span class="post-actions"><i class="fa fa-star fa-lg"></i>Oceń (123)</span>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div>
-          <span class="post-actions"><i class="fa fa-eye fa-lg"></i>123 wyświetleń</span>
+        <div class="row">
+          <div>
+            <span class="post-actions"><i class="fa fa-eye fa-lg"></i>123 wyświetleń</span>
+          </div>
         </div>
-      </div>
-      <div class="row" *ngIf="isEditable()">
-        <button class="btn btn-block btn-outline-warning" (click)="toEditPage()">Edytuj</button>
+        <div class="row" *ngIf="isEditable()">
+          <button class="btn btn-block btn-outline-warning" (click)="toEditPage()">Edytuj</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 <!--<button (click)="goBack()">Cofnij</button>-->
