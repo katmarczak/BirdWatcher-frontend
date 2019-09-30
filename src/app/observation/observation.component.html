@@ -11,14 +11,11 @@
           </div>
         </div>
         <div id="observation-extras">
-          <div class="row">
+          <div class="row" id="observation-description" *ngIf="observation.description">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Opis</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat.</p>
+                <p class="card-text">{{observation.description}}</p>
               </div>
             </div>
           </div>
@@ -35,7 +32,6 @@
               <a routerLink="/users/{{observation.owner._id}}">
                 <span class="post-actions">{{ observation.owner.username }}</span>
               </a>
-              <p>some info?</p>
             </div>
           </div>
         </div>
@@ -61,7 +57,8 @@
           </div>
         </div>
         <div class="row" *ngIf="isEditable()">
-          <button class="btn btn-block btn-outline-warning" (click)="toEditPage()">Edytuj</button>
+          <button class="btn btn-warning btn-observation-edit" (click)="toEditPage()">Edytuj</button>
+          <button class="btn btn-danger btn-observation-edit" (click)="toEditPage()">Usuń</button>
         </div>
       </div>
     </div>
