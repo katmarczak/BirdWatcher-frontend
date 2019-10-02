@@ -37,6 +37,11 @@ export class UserDetailComponent implements OnInit {
     this.observationService.getUserObservations(userId).subscribe(observations => this.userObservations = observations);
   }
 
+  getAvatarSrc() {
+    if(this.user && this.user.avatarPath) return `http://localhost:3000/${this.user.avatarPath}`;
+    return '../../../assets/default-avatar.png';
+  }
+
   goBack() {
     this.location.back();
   }

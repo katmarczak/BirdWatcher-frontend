@@ -1,7 +1,7 @@
 <div class="row content-wrapper">
   <div class="col-2">
     <div>
-      <img src="../../../assets/default-avatar.png" id="avatar" alt="avatar">
+      <img [src]="getAvatarSrc()" id="avatar" alt="avatar">
     </div>
     <div>
       <h1 class="h2">{{ user.username }}</h1>
