@@ -20,6 +20,11 @@ export class UserService {
     return this.http.get<User>(this.url+'/'+id);
   }
 
+  getCurrentUser(): Observable<User> {
+    const userId = localStorage.getItem('userId')
+    return this.http.get<User>(this.url+'/'+userId);
+  }
+
   registerUser(registrationData: RegistrationData) {
     return this.http.post(this.url, registrationData, { headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
