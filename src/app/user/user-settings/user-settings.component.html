@@ -1,3 +1,34 @@
-<p>
-  user-settings works!
-</p>
+<div class="pt-3 pb-2 mb-3">
+  <div class="row">
+    <div class="col-2">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="/settings/profile" role="tab" aria-controls="v-pills-home" aria-selected="true">Profil</a>
+        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="/settings/account" role="tab" aria-controls="v-pills-profile" aria-selected="false">Konto</a>
+        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="/settings/notifications" role="tab" aria-controls="v-pills-messages" aria-selected="false">Powiadomienia</a>
+      </div>
+    </div>
+    <div class="col-5">
+
+    </div>
+    <div class="col-2">
+      <!--<h3 class="h2 border-bottom">Edycja profilu</h3>-->
+      <!-- router outlet -->
+      <div>
+        <img [src]="getAvatarSrc()" id="avatar" alt="avatar">
+      </div>
+      <div class="form-group">
+        <form (ngSubmit)="onSubmit()">
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" name="avatar" id="avatar" (change)="handleFileInput($event.target.files)" class="custom-file-input">
+              <label class="my-file-label" for="inputGroupFile01">{{ fileName || "Wybierz plik" }}</label>
+            </div>
+            <div class="input-group-append">
+              <button type="submit" class="input-group-text" id="inputGroupFileAddon01">Wyślij</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

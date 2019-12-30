@@ -20,7 +20,21 @@ export class UserService {
     return this.http.get<User>(this.url+'/'+id);
   }
 
+  getCurrentUser(): Observable<User> {
+    const userId = localStorage.getItem('userId')
+    return this.http.get<User>(this.url+'/'+userId);
+  }
+
   registerUser(registrationData: RegistrationData) {
     return this.http.post(this.url, registrationData, { headers: new HttpHeaders({'Content-Type': 'application/json'})});
+  }
+
+  postFile(file: File): any {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);
+    console.log(formData);
+    this.http.post(this.url, formData).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

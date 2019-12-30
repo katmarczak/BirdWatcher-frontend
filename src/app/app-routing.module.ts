@@ -54,6 +54,10 @@ const routes: Routes = [
       {
         path: 'species',
         component: SpeciesListComponent
+      },
+      {
+        path: 'settings',
+        component: UserSettingsComponent
       }
     ]
   },
