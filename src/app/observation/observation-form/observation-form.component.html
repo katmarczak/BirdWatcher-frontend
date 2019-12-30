@@ -1,10 +1,16 @@
 <div>
   <form (ngSubmit)="onSubmit()">
     <div class="form-group row">
+      <label class="col-2" for="observation-date">Zdjęcia</label>
+      <div class="col-10">
+        <input type="file" multiple name="observation-photos" id="observation-photos" (change)="handleFileInput($event.target.files)">
+      </div>
+    </div>
+    <div class="form-group row">
       <label class="col-2" for="species-list-dropdown">Gatunek</label>
       <div class="col-10">
         <select name="species-list" id="species-list-dropdown" [(ngModel)]="observation.species">
-          <option *ngFor="let spec of species" [ngValue]="spec">{{spec.commonName}}</option>
+          <option *ngFor="let spec of speciesList" [ngValue]="spec">{{spec.commonName}}</option>
         </select>
       </div>
     </div>
@@ -17,13 +23,15 @@
     <div class="form-group row">
       <label class="col-2" for="latitude-input">Szerokosc geo</label>
       <div class="col-10">
-        <input type="number" name="latitude" id="latitude-input" min="-90" max="90" [(ngModel)]="observation.exactLocation.coordinates[0]">
+        <input type="number" name="latitude" id="latitude-input" min="-90" max="90"
+          [(ngModel)]="observation.exactLocation.coordinates[0]">
       </div>
     </div>
     <div class="form-group row">
       <label class="col-2" for="longitude-input">Dlugosc geo</label>
       <div class="col-10">
-        <input type="number" name="longitude" id="longitude-input" min="-180" max="180" [(ngModel)]="observation.exactLocation.coordinates[1]">
+        <input type="number" name="longitude" id="longitude-input" min="-180" max="180"
+          [(ngModel)]="observation.exactLocation.coordinates[1]">
       </div>
     </div>
     <button type="submit" class="btn btn-info">Wyślij</button>

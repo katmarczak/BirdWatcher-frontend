@@ -14,12 +14,22 @@ export class ObservationNewComponent implements OnInit {
   ngOnInit() {
   }
 
-  post(observation) {
-    const data = { speciesId: observation.species._id, date: observation.date, exactLocation: observation.exactLocation };
-    this.observationService.postObservation(data).subscribe(
-      (observation) => {
-        this.router.navigate(['/observations', observation._id]);
-    }, (error) => console.log(error));
-  }
+  handle(formData: FormData) {
+    const formObservation = JSON.parse(formData.get('observation').toString());
+    const fields = { speciesId: formObservation.species._id, date: formObservation.date, exactLocation: formObservation.exactLocation };
+    const files = formData.getAll('photos');
+    console.log('Fields:', fields, ' Files: ', files);
 
+    this.observationService.postObservation(fields).subscribe(
+      (observation) => {
+        if (!files) {
+          this.router.navigate(['/observations', observation._id]);
+        }
+        else {
+          this.observationService.postPhotos(observation._id, files).subscribe(() => {
+            this.router.navigate(['/observations', observation._id]);
+          }, (error) => console.log(error));
+        }
+      }, (error) => console.log(error));
+  }
 }

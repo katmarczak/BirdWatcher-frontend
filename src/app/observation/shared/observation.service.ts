@@ -29,4 +29,13 @@ export class ObservationService {
     };
     return this.http.post<Observation>(this.url, observation, httpOptions); 
   }
+
+  postPhotos(observationId: string, files):Observable<any> { 
+    const token = localStorage.getItem('jwt-token');
+    const headers = new HttpHeaders().set('x-auth-token', token);
+    var formData: FormData = new FormData();
+    for (var i = 0; i < files.length; i++) formData.append('photos', files[i]);
+        
+    return this.http.post(`${this.url}/${observationId}/pics`, formData, { headers: headers, responseType: 'text'});
+  }
 }
