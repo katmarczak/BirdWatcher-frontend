@@ -27,7 +27,7 @@
       <div class="col-3 sidebar-info">
         <div class="row">
           <div id="profile-info">
-            <div><img class="profile-picture" src="../../assets/blank-profile-picture.png"></div>
+            <div><img *ngIf="owner" class="profile-picture" [src]="getAvatarSrc()"></div>
             <div>
               <a routerLink="/users/{{observation.owner._id}}">
                 <span class="post-actions">{{ observation.owner.username }}</span>

@@ -37,4 +37,9 @@ export class UserService {
       console.log(res);
     });
   }
+  
+  getAvatarSrc(user: User) {
+    if(user && user.avatarPath) return `http://localhost:3000/${user.avatarPath}`;
+    return '../../../assets/default-avatar.png';
+  }
 }

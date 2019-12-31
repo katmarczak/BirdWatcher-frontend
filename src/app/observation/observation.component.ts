@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ObservationService } from './shared/observation.service';
 import { Observation } from './shared/observation.model';
+import { User } from '../user/shared/user.model';
+import { UserService } from '../user/shared/user.service';
 
 @Component({
   selector: 'app-observation',
@@ -10,9 +12,11 @@ import { Observation } from './shared/observation.model';
 })
 export class ObservationComponent implements OnInit {
   observation: Observation;
+  owner: User;
 
   constructor(
     private observationService: ObservationService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -23,7 +27,16 @@ export class ObservationComponent implements OnInit {
 
   getObservation() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.observationService.getObservation(id).subscribe(observation => this.observation = observation);
+    this.observationService.getObservation(id).subscribe((observation) => {
+      this.observation = observation;
+      this.userService.getUser(observation.owner._id).subscribe((user) => {
+        this.owner = user;
+      });
+    });
+  }
+
+  getAvatarSrc() {
+    return this.userService.getAvatarSrc(this.owner);
   }
 
   isEditable() {

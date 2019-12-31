@@ -43,8 +43,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   getAvatarSrc() {
-    if(this.user && this.user.avatarPath) return `http://localhost:3000/${this.user.avatarPath}`;
-    return '../../../assets/default-avatar.png';
+    return this.userService.getAvatarSrc(this.user);
   }
 
   goBack() {
