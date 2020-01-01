@@ -10,7 +10,7 @@ import { Observation } from '../shared/observation.model';
 export class ObservationFormComponent implements OnInit {
   speciesList;
   photos: FileList;
-  observation: Observation = new Observation();
+  @Input() observation: Observation;
   @Output() submitEvent = new EventEmitter<FormData>();
 
   constructor(private speciesService: SpeciesService) { }
@@ -28,7 +28,6 @@ export class ObservationFormComponent implements OnInit {
 
   onSubmit() {
     const formData: FormData = new FormData();
-    console.log(this.photos);
     if (this.photos) {
       for (var i = 0; i < this.photos.length; i++) formData.append('photos', this.photos[i]);
     }

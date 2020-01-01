@@ -39,6 +39,10 @@ export class ObservationComponent implements OnInit {
     return this.userService.getAvatarSrc(this.owner);
   }
 
+  getPhotoSrc() {
+    return this.observationService.getPhotoSrc(this.observation);
+  }
+
   isEditable() {
     return this.observation.editable;
   }

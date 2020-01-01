@@ -34,6 +34,16 @@ i {
     margin: 5px -15px;
 }
 
+.observation-photo {
+    max-height: 380px;
+    width: auto;
+}
+
+.post-thumbnail {
+    align-items: center;
+    width: 100%;
+}
+
 #comments {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;

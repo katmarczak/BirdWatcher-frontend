@@ -7,7 +7,7 @@
       <div class="col-6">
         <div class="row" id="main-photo">
           <div class="card post-thumbnail">
-            <img src="../../../assets/swans.jpg" class="card-img-top" alt="...">
+            <img *ngIf="observation" [src]="getPhotoSrc()" class="card-img-top observation-photo">
           </div>
         </div>
         <div id="observation-extras">

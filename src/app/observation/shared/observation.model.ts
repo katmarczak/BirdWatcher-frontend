@@ -8,6 +8,7 @@ export class Observation {
     date: Date;
     exactLocation: { coordinates: [number, number] };
     editable: Boolean;
+    photoPath: string;
 
     constructor() {
         this.species = { id: 0, commonName: '', scientificName: '' };

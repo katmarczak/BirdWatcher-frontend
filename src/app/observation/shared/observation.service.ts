@@ -35,4 +35,9 @@ export class ObservationService {
         
     return this.http.post(`${this.url}/${observationId}/pics`, formData, { headers: headers, responseType: 'text'});
   }
+
+  getPhotoSrc(observation: Observation) {
+    if(observation && observation.photoPath) return `http://localhost:3000/${observation.photoPath}`;
+    return '../../../assets/swans.jpg';
+  }
 }
