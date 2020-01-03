@@ -26,4 +26,8 @@ export class ObservationService {
   editObservation(observation):Observable<Observation> { 
     return this.http.put<Observation>(`${this.url}/${observation._id}`, observation); 
   }
+
+  removeObservation(observation) {
+    return this.http.delete(`${this.url}/${observation._id}`, { responseType: 'text' });
+  }
 }
