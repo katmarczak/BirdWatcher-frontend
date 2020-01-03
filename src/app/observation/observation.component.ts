@@ -51,4 +51,10 @@ export class ObservationComponent implements OnInit {
     this.router.navigate(['/observations/edit', this.observation._id]);
   }
 
+  remove() {
+    this.observationService.removeObservation(this.observation).subscribe(() => {
+      this.router.navigate(['/users', this.owner._id]);
+    });    
+  }
+
 }

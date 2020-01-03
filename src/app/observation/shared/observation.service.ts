@@ -40,4 +40,8 @@ export class ObservationService {
     if(observation && observation.photoPath) return `http://localhost:3000/${observation.photoPath}`;
     return '../../../assets/swans.jpg';
   }
+  
+  removeObservation(observation) {
+    return this.http.delete(`${this.url}/${observation._id}`, { responseType: 'text' });
+  }
 }
