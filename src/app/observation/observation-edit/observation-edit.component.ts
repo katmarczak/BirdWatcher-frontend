@@ -26,8 +26,9 @@ export class ObservationEditComponent implements OnInit {
     this.observationService.getObservation(id).subscribe(observation => this.observation = observation);
   }
 
-  update(observation) {
-    const data = { _id: observation._id, speciesId: observation.species._id, date: observation.date, exactLocation: observation.exactLocation };
+  handle(formData: FormData) {
+    const formObservation = JSON.parse(formData.get('observation').toString());
+    const data = { _id: formObservation._id, speciesId: formObservation.species._id, date: formObservation.date, exactLocation: formObservation.exactLocation };
     this.observationService.editObservation(data).subscribe(
       (observation) => {
         this.router.navigate(['/observations', observation._id]);
