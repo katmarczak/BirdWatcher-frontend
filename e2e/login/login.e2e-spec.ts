@@ -15,14 +15,14 @@ describe('Login page', () => {
         mainPage.logout();
     });
 
-    it('should redirect to main page if the user has entered valid credenatials', () => {
+    it('should redirect to main page if the user has entered valid credentials', () => {
         loginPage.navigateTo();
         const validCredentials = { email: 'test', password: 'test'};
         loginPage.fillCredentials(validCredentials);
         expect(mainPage.getActiveSidebarLink()).toEqual('Strona główna');
     });
 
-    it('should display error on login page if the user has entered invalid credenatials', () => {
+    it('should display error on login page if the user has entered invalid credentials', () => {
         loginPage.navigateTo();
         const invalidCredentials = { email: 'test', password: '123'};
         loginPage.fillCredentials(invalidCredentials).then(() => {
