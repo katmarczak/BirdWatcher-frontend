@@ -11,8 +11,7 @@
         <div class="dropdown-menu" id="profile-menu-dropdown">
             <button class="dropdown-item btn btn-link" (click)="goToProfile()">Mój profil</button>
             <button class="dropdown-item btn btn-link" (click)="goToSettings()">Ustawienia</button>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" id="logout-link" href="/" (click)="logout()">Wyloguj</a>
         </div>
+        <button *ngIf="authService.isUserLogged()" id="logout-link" class="btn btn-link text-nowrap" (click)="logout()">Wyloguj</button>
     </div>
 </nav>

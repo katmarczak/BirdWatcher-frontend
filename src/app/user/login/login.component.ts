@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginData: LoginData = { email: '', password: ''};
+  error = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -24,7 +25,10 @@ export class LoginComponent implements OnInit {
         this.authService.setIsLogged(true);
         this.router.navigateByUrl('/');
       }, 
-      (error) => console.log(error));
+      (httpError) => {
+        console.error(httpError);
+        this.error = httpError.error;
+      });
   }
 
   private saveToLocalStorage(data): void {
