@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { FileService } from 'src/app/sharedServices/file.service';
 import { User } from '../shared/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-settings',
@@ -13,9 +14,11 @@ export class UserSettingsComponent implements OnInit {
   currentUser: User;
   fileName: String;
 
-  constructor(private userService: UserService, private fileService: FileService) { }
+  constructor(private userService: UserService, private fileService: FileService, private router: Router) { }
 
   ngOnInit() {
+    const userId = localStorage.getItem('userId');
+    if(!userId) this.router.navigateByUrl('/login');
     this.userService.getCurrentUser().subscribe((user) => {
       this.currentUser = user;
     });
