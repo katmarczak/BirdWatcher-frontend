@@ -16,7 +16,10 @@ export class ObservationFormComponent implements OnInit {
 
   ngOnInit() {
     this.getSpecies();
-    if(!this.observation) this.observation = new Observation();
+    if(!this.observation) {
+      this.observation = new Observation();
+      this.observation.date = new Date();
+    }
   }
 
   getSpecies(): void { this.speciesService.getSpecies().subscribe(species => this.species = species); }
